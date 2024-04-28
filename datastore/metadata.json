@@ -1,23 +1,11 @@
 {
-    "-1270223676644048973": {
-        "file_name": "NTSE-Stage-1-2013-Paper-SAT(Rajasthan).pdf",
-        "num_questions": null,
-        "annotator": "kscaria"
-    },
-
-    "1234566": {
+    "a09c84b9-259c-5add-8cb3-8f3f003d7ec9": {
         "file_name": "NTSE-Stage-1-2013-Paper-MAT(Rajasthan).pdf",
         "num_questions": null,
         "annotator": "kscaria"
     },
-    "1234526": {
-        "file_name": "NTSE-Stage-1-2013-Paper-CAT(Rajasthan).pdf",
-        "num_questions": null,
-        "annotator": "ua"
-    }
-
-    "1234567": {
-        "file_name": "NTSE-Stage-1-2013-Paper-PAT(Rajasthan).pdf",
+    "d83391ce-6022-5f72-8a6a-d1d215fa54ae": {
+        "file_name": "NTSE-Stage-1-2013-Paper-SAT(Rajasthan).pdf",
         "num_questions": null,
         "annotator": "kscaria"
     }
