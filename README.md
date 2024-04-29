@@ -2,10 +2,16 @@
 ## Steps for benchmark creation.
 
 
-Step 0: 
-Run annotation_utils.sh in the "prepare" mode. 
-- metadata json (updates if it already exists) in the individual folder
-- creates directory structure
+#### Step 0: 
+Run annotation_utils.sh in the "create_metadata" mode. 
+- metadata json (updates if it already exists) in the sub-folder for each paper
+- creates the directory structure
+```
+python ./scripts/annotation_utils.py \
+--mode create_metadata \
+--paper_path "./<PAPER_NAME_WITH_EXTENSION>" \
+--annotator_name kscaria \
+```
 
 Step 1:
 Go to <paper>/screenshots/ and add images. Naming convention:
