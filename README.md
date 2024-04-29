@@ -1,7 +1,16 @@
 # PolyMATH
+
+## General Workflow Guidelines
+> [!TIP]
+> Always `git pull` to ensure you have the latest changes in the main branch.
+
+> [!IMPORTANT]  
+> Always push to your remote branch.
+
+> [!NOTE]  
+> Create PR
+
 ## Benchmark Creation Steps
-
-
 #### Step 0: 
 Run annotation_utils.sh in the "create_metadata" mode. 
 - metadata json (updates if it already exists) in the sub-folder for each paper
@@ -35,9 +44,3 @@ Enter the manual annotation fields.
 #### Step 4: (WIP)
 Run a script that converts 
 - annotation csv to json with the index and subindex structure we decided. \[Annotation json gets saved to global folder.\]
-
-#### Step 5: 
-rebase to ensure you have latest main status.
-push to branch. ensure merging of changes.
-Create PR.
-
