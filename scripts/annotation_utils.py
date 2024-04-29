@@ -7,7 +7,9 @@ import shutil
 import pandas as pd
 
 """
-This script is the annotators utility"""
+This script contains the set of utility functions
+useful for the annotator
+"""
 
 parser = argparse.ArgumentParser(description='Prepare uniform directory structure')
 parser.add_argument('-m','--mode', help='The annotations utility mode', required=False)
