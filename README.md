@@ -8,7 +8,7 @@
 > Always push to your remote branch.
 
 > [!NOTE]  
-> Create PR
+> Create PR.
 
 ## Benchmark Creation Steps
 #### Step 0: 
