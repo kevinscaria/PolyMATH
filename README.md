@@ -1,5 +1,5 @@
 # PolyMATH
-## Steps for benchmark creation.
+## Benchmark Creation Steps
 
 
 #### Step 0: 
@@ -13,23 +13,30 @@ python ./scripts/annotation_utils.py \
 --annotator_name kscaria \
 ```
 
-Step 1:
+#### Step 1: 
 Go to <paper>/screenshots/ and add images. Naming convention:
 - q<n>_<part>_\[c<context>\] []:optional
 - c<num>
 
-Step 2:
+#### Step 2: 
 Run annotation_utils.sh in the "create_annotations" mode. 
 - annotation csv within the individual folder. Populates all the fields it can
+- If the datastore path is given, the script will iterate through all sub-folders and create the annotations.csv for all of them.
+- If `-paper_path` is given, the script will only create the annotations.csv for the provided paper path.
+```
+python ./scripts/annotation_utils.py \
+--mode create_annotation \
+--datastore_path "./datastore/"
+```
 
-Step 3:
-Manual annotation
+#### Step 3: 
+Enter the manual annotation fields.
 
-Step 3:
+#### Step 4: (WIP)
 Run a script that converts 
 - annotation csv to json with the index and subindex structure we decided. \[Annotation json gets saved to global folder.\]
 
-Step 4:
+#### Step 5: 
 rebase to ensure you have latest main status.
 push to branch. ensure merging of changes.
 Create PR.
