@@ -5,6 +5,8 @@ import argparse
 import glob
 import shutil
 import pandas as pd
+from tqdm import tqdm
+import jsonlines
 
 """
 This script contains the set of utility functions
@@ -43,6 +45,30 @@ def create_annotations_helper(paper_path, paper_id):
     final_answer_range=[]
     page_number=[]
 
+    for i,q in tqdm(enumerate(questions),total=len(questions)):
+    
+        imgs = glob.glob(os.path.join(paper_path,qdir,f'{q}*.png')) # list of all images for this q
+        imgpaths.append([os.path.basename(p) for p in imgs]) # in case single question is split into multiple screenshots
+        imgex = imgpaths[-1][-1]
+        
+        if('c' in imgex): # i.e. context exists for this question
+            cfile = imgex.split('_')[-1]
+            if not os.path.isfile(os.path.join(paper_path,cdir,cfile)):
+                print('context not found!')
+                contexts.append('ERROR')
+            else:
+                contexts.append(cfile)
+        else: contexts.append('NULL')
+            
+        
+        input_text_parsed.append('')
+        
+        instruction.append('')
+        final_answer.append('')
+        final_answer_range.append('')
+        page_number.append('')
+        explanation.append('')
+
     # Create schema for annotations table
     annotation_file = pd.DataFrame(
         data={
@@ -59,6 +85,24 @@ def create_annotations_helper(paper_path, paper_id):
             }
         )
     return annotation_file
+
+def get_dict_array(ann_df):
+    # getting nested-index JSON from annotation csv
+    ann_df = ann_df.astype(str)
+    opdct=[]
+
+    for i,r in ann_df.iterrows():
+        dct={}
+        dct['input']={}
+        dct['output']={}
+
+        for k in list(ann_df.columns):
+            col,splits = k.split('-')
+            dct[splits][col] = r[k]
+
+        opdct.append(dct)
+
+    return opdct
 
 # Enter root path
 root_path = "./"
@@ -137,3 +181,25 @@ if args["mode"] == "create_annotation":
         paper_id_determined = str(uuid.uuid5(uuid.NAMESPACE_DNS, paper_name_without_extension))
         annotation_file = create_annotations_helper(args["paper_path"], paper_id_determined)
         annotation_file.to_csv(os.path.join(args["paper_path"],'annotations.csv'),index=False)
+
+
+if args["mode"] == "freeze_annotation":
+    """
+    Create/appends to root/annotations.jsonl after human annotations.
+    """
+
+    if args["datastore_path"] is not None:
+        filtered_directories = [i for i in os.listdir(args["datastore_path"]) if not i.startswith(".")]
+        for paper_folders in os.listdir(args["datastore_path"]):
+            if not paper_folders in ["metadata.json", ".DS_Store"]:
+                paper_path = os.path.join(args["datastore_path"], paper_folders)
+                anfile = pd.read_csv(os.path.join(paper_path,'annotations.csv'))
+                all_anns = get_dict_array(anfile)
+                with jsonlines.open(os.path.join(root_path, "datastore",'annotation.jsonl'), mode='a') as writer:
+                    for ann in all_anns:
+                        writer.write(ann)
+                writer.close()
+
+                
+    else:
+        print('error: datastore path not specified!')
