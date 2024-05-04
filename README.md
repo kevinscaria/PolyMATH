@@ -24,8 +24,9 @@ python ./scripts/annotation_utils.py \
 
 #### Step 1: 
 Go to <paper>/screenshots/ and add images. Naming convention:
-- q<n>_<part>_\[c<context>\] []:optional
-- c<num>
+- `q<n>_<part>_[c<context>]`
+-   `[]:optional`
+- `c<num>`
 
 #### Step 2: 
 Run annotation_utils.sh in the "create_annotations" mode. 
