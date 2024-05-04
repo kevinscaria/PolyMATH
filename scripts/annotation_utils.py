@@ -89,20 +89,20 @@ def create_annotations_helper(paper_path, paper_id):
 def get_dict_array(ann_df):
     # getting nested-index JSON from annotation csv
     ann_df = ann_df.astype(str)
-    opdct=[]
+    output_dict_array=[]
 
     for i,r in ann_df.iterrows():
-        dct={}
-        dct['input']={}
-        dct['output']={}
+        output_dict={}
+        output_dict['input']={}
+        output_dict['output']={}
 
         for k in list(ann_df.columns):
             col,splits = k.split('-')
-            dct[splits][col] = r[k]
+            output_dict[splits][col] = r[k]
 
-        opdct.append(dct)
+        output_dict_array.append(output_dict)
 
-    return opdct
+    return output_dict_array
 
 # Enter root path
 root_path = "./"
