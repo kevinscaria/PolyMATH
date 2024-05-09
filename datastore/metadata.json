@@ -2,11 +2,101 @@
     "a09c84b9-259c-5add-8cb3-8f3f003d7ec9": {
         "file_name": "NTSE-Stage-1-2013-Paper-MAT(Rajasthan).pdf",
         "num_questions": null,
-        "annotator": "kscaria"
+        "annotator": "hgupta"
     },
     "d83391ce-6022-5f72-8a6a-d1d215fa54ae": {
         "file_name": "NTSE-Stage-1-2013-Paper-SAT(Rajasthan).pdf",
         "num_questions": null,
-        "annotator": "kscaria"
+        "annotator": "hgupta"
+    },
+    "26b9357d-3a2d-5297-97fd-554df3ba64db": {
+        "file_name": "QP_Chattisgarh_NTSE_Stage1_2016-17(MAT-LANGUAGE).pdf",
+        "num_questions": null,
+        "annotator": "hgupta"
+    },
+    "13c92117-3fa2-5842-90dc-1094c56b5461": {
+        "file_name": "QP_Chattisgarh NTSE Stage 1 2016-17 (SAT).pdf",
+        "num_questions": null,
+        "annotator": "hgupta"
+    },
+    "7f3fd3be-4a2a-5f68-b178-734e78231883": {
+        "file_name": "QP_Delhi_NTSE_Stage1_2016-17_LANGUAGE.pdf",
+        "num_questions": null,
+        "annotator": "hgupta"
+    },
+    "910c8ded-caa5-5fdf-8cd5-212c74e0f446": {
+        "file_name": "QP_Delhi_NTSE_Stage1_2016-17_MAT.pdf",
+        "num_questions": null,
+        "annotator": "hgupta"
+    },
+    "4cb2e57c-5eed-506e-9a52-b0368e45a849": {
+        "file_name": "QP_Delhi_NTSE_Stage1_2016-17_SAT.pdf",
+        "num_questions": null,
+        "annotator": "hgupta"
+    },
+    "16aefae9-3c97-5b85-b6f5-25c62ec4c048": {
+        "file_name": "QP_Jharkhand NTSE Stage1_2016-17.pdf",
+        "num_questions": null,
+        "annotator": "hgupta"
+    },
+    "f4951250-3f5c-557a-8efb-a51b94ef0eea": {
+        "file_name": "QP_Karnataka_NTSE_Stage1_2016-17(MAT).pdf",
+        "num_questions": null,
+        "annotator": "hgupta"
+    },
+    "a8f56024-b659-5846-8c85-dba4a18235b1": {
+        "file_name": "QP_Karnataka_NTSE_Stage1_2016-17(SAT).pdf",
+        "num_questions": null,
+        "annotator": "hgupta"
+    },
+    "c0ad248f-26a4-5d71-9130-a2de42f80afb": {
+        "file_name": "QP_MadhyaPradesh_NTSE_Stage1_2016-17.pdf",
+        "num_questions": null,
+        "annotator": "hgupta"
+    },
+    "c52f97cc-8d8c-5798-9202-84cf93f716cb": {
+        "file_name": "QP_MAHARASHTRA_NTSE_Stage-1_2016-17(MAT).pdf",
+        "num_questions": null,
+        "annotator": "hgupta"
+    },
+    "5f88ad54-b244-5515-b9a3-47ea737ff009": {
+        "file_name": "QP_MAHARASHTRA_NTSE_Stage-1_2016-17(SAT).pdf",
+        "num_questions": null,
+        "annotator": "hgupta"
+    },
+    "709e03d6-f579-5093-94df-d7927be415db": {
+        "file_name": "QP_NTSE Stage 1 2016-17 Tamil Nadu (MAT & LANGUAGE).pdf",
+        "num_questions": null,
+        "annotator": "hgupta"
+    },
+    "ed80d25d-c9c9-5e67-986a-710451f9f089": {
+        "file_name": "QP_NTSE Stage 1 2016-17 Tamil Nadu (SAT).pdf",
+        "num_questions": null,
+        "annotator": "hgupta"
+    },
+    "853873d2-5103-5042-83bc-2e3bff6a1815": {
+        "file_name": "QP_NTSE Stage-1_2016-17 Bihar.pdf",
+        "num_questions": null,
+        "annotator": "hgupta"
+    },
+    "57a5e89b-953d-56aa-ad08-c62ca3427833": {
+        "file_name": "QP_NTSE_Stage1_2016-17_Haryana_MAT-LANGUAGE-SAT.pdf",
+        "num_questions": null,
+        "annotator": "hgupta"
+    },
+    "832f846d-43d6-5f55-9a0b-76ea06b1d5d0": {
+        "file_name": "QP_NTSE_Stage1_2016-17_Rajasthan-MAT.pdf",
+        "num_questions": null,
+        "annotator": "hgupta"
+    },
+    "3487ae31-bab5-55e6-9216-2f8102510efd": {
+        "file_name": "QP_NTSE_Stage1_2016-17_Rajasthan-SAT.pdf",
+        "num_questions": null,
+        "annotator": "hgupta"
+    },
+    "ffcf674e-119a-5f80-b371-4b4ecf1a6f27": {
+        "file_name": "QP_NTSE-Stage-1_2016-17-AndhraPradesh.pdf",
+        "num_questions": null,
+        "annotator": "hgupta"
     }
 }
