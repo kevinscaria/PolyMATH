@@ -52,13 +52,15 @@ def create_annotations_helper(paper_path, paper_id):
         imgex = imgpaths[-1][-1]
         
         if('c' in imgex): # i.e. context exists for this question
-            cfile = imgex.split('_')[-1]
-            if not os.path.isfile(os.path.join(paper_path,cdir,cfile)):
+            cfile = imgex.split('_')[-1] # context num
+            cfile = cfile.replace('.png','*.png') # matches c<num>*.png, so all parts of c<num> included
+            contextfiles = [os.path.basename(p) for p in glob.glob(os.path.join(paper_path,qdir,f'{cfile}'))]
+            if not len(contextfiles): # if contextfiles not found
                 print('context not found!')
-                contexts.append('ERROR')
+                contexts.append(['ERROR'])
             else:
-                contexts.append(cfile)
-        else: contexts.append('NULL')
+                contexts.append(contextfiles)
+        else: contexts.append([])
             
         
         input_text_parsed.append('')
