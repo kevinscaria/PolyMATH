@@ -1,8 +1,9 @@
-# python ./scripts/annotation_utils.py \
+# python /Users/him1411/Desktop/ra_work/project_16_ntse_benchmark/PolyMATH/scripts/annotation_utils.py \
 # --mode create_metadata \
-# --paper_path "./raw_dataset/13_14_papers/NTSE-Stage-1-2013-Paper-MAT(Rajasthan).pdf" \
-# --annotator_name kscaria \
+# --paper_path "/Users/him1411/Desktop/ra_work/project_16_ntse_benchmark/16_17_papers/QP_NTSE-Stage-1_2016-17-AndhraPradesh.pdf" \
+# --annotator_name hgupta \
+# --datastore_path "/Users/him1411/Desktop/ra_work/project_16_ntse_benchmark/PolyMATH/datastore"
 
-python ./scripts/annotation_utils.py \
+python /Users/him1411/Desktop/ra_work/project_16_ntse_benchmark/PolyMATH/scripts/annotation_utils.py \
 --mode create_annotation \
---datastore_path "./datastore/" \
+--datastore_path "/Users/him1411/Desktop/ra_work/project_16_ntse_benchmark/PolyMATH/datastore"
