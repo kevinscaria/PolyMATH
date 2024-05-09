@@ -47,7 +47,7 @@ def create_annotations_helper(paper_path, paper_id):
 
     for i,q in tqdm(enumerate(questions),total=len(questions)):
     
-        imgs = glob.glob(os.path.join(paper_path,qdir,f'{q}*.png')) # list of all images for this q
+        imgs = glob.glob(os.path.join(paper_path,qdir,f'{q}_*.png')) # list of all images for this q
         imgpaths.append([os.path.basename(p) for p in imgs]) # in case single question is split into multiple screenshots
         imgex = imgpaths[-1][-1]
         
@@ -182,6 +182,11 @@ if args["mode"] == "create_annotation":
         paper_name_without_extension = paper_name_with_extension.split(".")[0]
         paper_id_determined = str(uuid.uuid5(uuid.NAMESPACE_DNS, paper_name_without_extension))
         annotation_file = create_annotations_helper(args["paper_path"], paper_id_determined)
+        ### sorting by q number
+        annotation_file['sort_col'] = annotation_file['sample_id-input'].str.split('q').str[-1].astype('int')
+        annotation_file = annotation_file.sort_values(by=['sort_col'])
+        annotation_file = annotation_file.drop(columns=['sort_col'])
+        ### saving.
         annotation_file.to_csv(os.path.join(args["paper_path"],'annotations.csv'),index=False)
 
 
