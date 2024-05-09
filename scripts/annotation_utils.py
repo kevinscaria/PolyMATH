@@ -184,7 +184,7 @@ if args["mode"] == "create_annotation":
         paper_id_determined = str(uuid.uuid5(uuid.NAMESPACE_DNS, paper_name_without_extension))
         annotation_file = create_annotations_helper(args["paper_path"], paper_id_determined)
         ### sorting by q number
-        annotation_file['sort_col'] = annotation_file['sample_id-input'].str.split('q').str[-1].astype('int')
+        annotation_file['sort_col'] = annotation_file['sample_id-input'].str.split('q').str[-1].astype(int)
         annotation_file = annotation_file.sort_values(by=['sort_col'])
         annotation_file = annotation_file.drop(columns=['sort_col'])
         ### saving.
