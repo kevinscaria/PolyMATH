@@ -44,6 +44,7 @@ def create_annotations_helper(paper_path, paper_id):
     final_answer=[]
     final_answer_range=[]
     page_number=[]
+    category=[]
 
     for i,q in tqdm(enumerate(questions),total=len(questions)):
     
@@ -71,6 +72,7 @@ def create_annotations_helper(paper_path, paper_id):
         final_answer_range.append('')
         page_number.append('')
         explanation.append('')
+        category.append('')
 
     # Create schema for annotations table
     annotation_file = pd.DataFrame(
@@ -84,7 +86,8 @@ def create_annotations_helper(paper_path, paper_id):
             "input_text_parsed-input":input_text_parsed,
             "explanation-output":explanation,
             "final_answer-output":final_answer,
-            "final_answer_range-output":final_answer_range
+            "final_answer_range-output":final_answer_range,
+            "category-input":category
             }
         )
     return annotation_file
@@ -176,6 +179,11 @@ if args["mode"] == "create_annotation":
                 paper_name_without_extension = paper_name_with_extension.split(".")[0]
                 paper_id_determined = str(uuid.uuid5(uuid.NAMESPACE_DNS, paper_name_without_extension))
                 annotation_file = create_annotations_helper(paper_path, paper_id_determined)
+                 ### sorting by q number
+                annotation_file['sort_col'] = annotation_file['sample_id-input'].apply(lambda x: int(x.split('q')[-1]))
+                annotation_file = annotation_file.sort_values(by=['sort_col'])
+                annotation_file = annotation_file.drop(columns=['sort_col'])
+                ### saving.
                 annotation_file.to_csv(os.path.join(paper_path,'annotations.csv'), index=False)
     else:
          # Determine file metadata
@@ -183,8 +191,8 @@ if args["mode"] == "create_annotation":
         paper_name_without_extension = paper_name_with_extension.split(".")[0]
         paper_id_determined = str(uuid.uuid5(uuid.NAMESPACE_DNS, paper_name_without_extension))
         annotation_file = create_annotations_helper(args["paper_path"], paper_id_determined)
-        ### sorting by q number
-        annotation_file['sort_col'] = annotation_file['sample_id-input'].str.split('q').str[-1].astype(int)
+         ### sorting by q number
+        annotation_file['sort_col'] = annotation_file['sample_id-input'].apply(lambda x: int(x.split('q')[-1]))
         annotation_file = annotation_file.sort_values(by=['sort_col'])
         annotation_file = annotation_file.drop(columns=['sort_col'])
         ### saving.
