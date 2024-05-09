@@ -53,7 +53,8 @@ def create_annotations_helper(paper_path, paper_id):
         
         if('c' in imgex): # i.e. context exists for this question
             cfile = imgex.split('_')[-1] # context num
-            cfile = cfile.replace('.png','*.png') # matches c<num>*.png, so all parts of c<num> included
+            contextfiles = [os.path.basename(p) for p in glob.glob(os.path.join(paper_path,qdir,f'{cfile}'))]
+            cfile = cfile.replace('.png','_*.png') # matches c<num>_*.png, so all parts of c<num> included
             contextfiles = [os.path.basename(p) for p in glob.glob(os.path.join(paper_path,qdir,f'{cfile}'))]
             if not len(contextfiles): # if contextfiles not found
                 print('context not found!')
