@@ -164,10 +164,11 @@ if args["mode"] == "create_metadata":
     
     # Copy the paper from the raw_dataset to the sub-directory created
     shutil.copy(args["paper_path"], os.path.join(root_path, "datastore", paper_name_without_extension))
+    print(f'Created directory for {os.path.join(root_path, "datastore", paper_name_without_extension)}')
 
 if args["mode"] == "create_annotation":
     """
-    Create annotations.csv
+    Create annotations.csv after you take screenshots
     """
 
     if args["datastore_path"] is not None:
@@ -179,12 +180,16 @@ if args["mode"] == "create_annotation":
                 paper_name_without_extension = paper_name_with_extension.split(".")[0]
                 paper_id_determined = str(uuid.uuid5(uuid.NAMESPACE_DNS, paper_name_without_extension))
                 annotation_file = create_annotations_helper(paper_path, paper_id_determined)
-                 ### sorting by q number
+                ### sorting by q number
                 annotation_file['sort_col'] = annotation_file['sample_id-input'].apply(lambda x: int(x.split('q')[-1]))
                 annotation_file = annotation_file.sort_values(by=['sort_col'])
                 annotation_file = annotation_file.drop(columns=['sort_col'])
                 ### saving.
+                if(annotation_file.shape[0]==0): 
+                    print(f'No screenshots found for {os.path.basename(paper_path)} - skipping')
+                    continue
                 annotation_file.to_csv(os.path.join(paper_path,'annotations.csv'), index=False)
+                print(f'Created annotations file for {os.path.basename(paper_path)}')
     else:
          # Determine file metadata
         location, paper_name_with_extension = os.path.split(args["paper_path"])
