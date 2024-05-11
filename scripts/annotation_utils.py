@@ -201,7 +201,10 @@ if args["mode"] == "create_annotation":
         annotation_file = annotation_file.sort_values(by=['sort_col'])
         annotation_file = annotation_file.drop(columns=['sort_col'])
         ### saving.
-        annotation_file.to_csv(os.path.join(args["paper_path"],'annotations.csv'),index=False)
+        if(annotation_file.shape[0]==0): 
+            print(f'No screenshots found for {os.path.basename(args["paper_path"])} - skipping')
+        else:
+            annotation_file.to_csv(os.path.join(args["paper_path"],'annotations.csv'),index=False)
 
 
 if args["mode"] == "freeze_annotation":
