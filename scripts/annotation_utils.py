@@ -111,7 +111,7 @@ def get_dict_array(ann_df):
     return output_dict_array
 
 # Enter root path
-root_path = "./"
+root_path = "../"
 
 if args["mode"] == "create_metadata":
     """
@@ -189,7 +189,7 @@ if args["mode"] == "create_annotation":
                     print(f'No screenshots found for {os.path.basename(paper_path)} - skipping')
                     continue
                 annotation_file.to_csv(os.path.join(paper_path,'annotations.csv'), index=False)
-                print(f'Created annotations file for {os.path.basename(paper_path)}')
+                # print(f'Created annotations file for {os.path.basename(paper_path)}')
     else:
          # Determine file metadata
         location, paper_name_with_extension = os.path.split(args["paper_path"])
