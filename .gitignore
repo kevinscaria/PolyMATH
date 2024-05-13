@@ -1,8 +1,12 @@
 .DS_Store
-.idea
+*.idea
 __pycache__/
 config.ini
 .env
 raw_dataset
+<<<<<<< Updated upstream
 /ntse_17_18/
 /scripts/annotation_utils.sh
+=======
+./scripts/*.sh
+>>>>>>> Stashed changes
