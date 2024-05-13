@@ -5,3 +5,4 @@ config.ini
 .env
 raw_dataset
 /ntse_17_18/
+/scripts/annotation_utils.sh
