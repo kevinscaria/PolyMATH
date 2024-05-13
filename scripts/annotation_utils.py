@@ -19,6 +19,7 @@ parser.add_argument('-pp','--paper_path', help='The name of paper', required=Fal
 parser.add_argument('-dp','--datastore_path', help='The path of datastore', required=True)
 parser.add_argument('-an','--annotator_name', help='The name of annotator', required=False)
 parser.add_argument('-u','--update', help='Update an entry', required=False, default=False)
+parser.add_argument('-o','--overwrite', action='store_true', help='overwrite existing annotations.csv?', required=False, default=False)
 args = vars(parser.parse_args())
 
 def create_annotations_helper(paper_path, paper_id):
@@ -180,6 +181,9 @@ if args["mode"] == "create_annotation":
                 paper_name_without_extension = paper_name_with_extension.split(".")[0]
                 paper_id_determined = str(uuid.uuid5(uuid.NAMESPACE_DNS, paper_name_without_extension))
                 annotation_file = create_annotations_helper(paper_path, paper_id_determined)
+                if(not args['overwrite'] and os.path.exists(os.path.join(paper_path,'annotations.csv'))):
+                    print(f'{os.path.join(paper_path,"annotations.csv")} exists ; re-run command with "--overwrite" to overwrite.')
+                    continue
                 ### sorting by q number
                 annotation_file['sort_col'] = annotation_file['sample_id-input'].apply(lambda x: int(x.split('q')[-1]))
                 annotation_file = annotation_file.sort_values(by=['sort_col'])
