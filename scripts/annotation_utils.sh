@@ -6,5 +6,6 @@
 
 python annotation_utils.py \
 --mode create_annotation \
---datastore_path "../datastore"
-# --overwrite # to overwrite existing annotation
+--datastore_path "../datastore" \
+--overwrite 
+# to overwrite existing annotation

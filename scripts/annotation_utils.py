@@ -19,7 +19,7 @@ parser.add_argument('-pp','--paper_path', help='The name of paper', required=Fal
 parser.add_argument('-dp','--datastore_path', help='The path of datastore', required=True)
 parser.add_argument('-an','--annotator_name', help='The name of annotator', required=False)
 parser.add_argument('-u','--update', help='Update an entry', required=False, default=False)
-parser.add_argument('-o','--overwrite', action='store_true', help='overwrite existing annotations.csv?', required=False, default=False)
+parser.add_argument('--overwrite', dest='overwrite', action='store_true', help='overwrite existing annotations.csv?', required=False, default=False)
 args = vars(parser.parse_args())
 
 def create_annotations_helper(paper_path, paper_id):
