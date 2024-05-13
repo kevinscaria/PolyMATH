@@ -98,5 +98,30 @@
         "file_name": "QP_NTSE-Stage-1_2016-17-AndhraPradesh.pdf",
         "num_questions": null,
         "annotator": "hgupta"
+    },
+    "6664768e-a532-5606-ab07-7358e7f50edf": {
+        "file_name": "QP_Answer Keys_Kerala NTSE Stage 1 2017-18 MAT.pdf",
+        "num_questions": 48,
+        "annotator": "ujjwalaa"
+    },
+    "4295d827-64c6-5b2c-914b-848882a27cbf": {
+        "file_name": "QP_Answer Key Chandigarh NTSE Stage 1 2017-18 MAT.pdf",
+        "num_questions": null,
+        "annotator": "ujjwalaa"
+    },
+    "6d82ebee-3bd5-5a8e-805e-bb35a08900b6": {
+        "file_name": "QP_Answer Key Chandigarh NTSE Stage 1 2017-18 MAT new.pdf",
+        "num_questions": 50,
+        "annotator": "ujjwalaa"
+    },
+    "9cf83db6-9bdb-5567-babd-e7d10b24d34b": {
+        "file_name": "QP_Gujarat NTSE Stage 1 2017-18 MAT.pdf",
+        "num_questions": 50,
+        "annotator": "ujjwalaa"
+    },
+    "0a0dd30b-a56c-59ec-80ec-825f55465c22": {
+        "file_name": "QP_Karnataka NTSE Stage1 (2017-18) MAT.pdf",
+        "num_questions": 50,
+        "annotator": "ujjwalaa"
     }
 }
