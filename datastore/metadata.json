@@ -118,5 +118,15 @@
         "file_name": "QP_Karnataka NTSE Stage1 (2017-18) MAT.pdf",
         "num_questions": 50,
         "annotator": "ujjwalaa"
+    },
+    "ce48ecfa-9052-5cca-accd-6cbe128e3571": {
+        "file_name": "QP_Maharashtra NTSE Stage 1 2017-18 MAT.pdf",
+        "num_questions": 48,
+        "annotator": "ujjwalaa"
+    },
+    "40035a15-1ebe-5c83-bb9e-003d5e187753": {
+        "file_name": "QP_Odisha NTSE Stage 1 2017-18) MAT.pdf",
+        "num_questions": 49,
+        "annotator": "ujjwalaa"
     }
 }
