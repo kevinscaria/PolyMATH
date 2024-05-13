@@ -7,6 +7,7 @@ import shutil
 import jsonlines
 import pandas as pd
 from tqdm import tqdm
+import jsonlines
 
 """
 This script contains the set of utility functions
@@ -203,7 +204,7 @@ if args["mode"] == "create_annotation":
                     annotation_file = create_annotations_helper(paper_path, paper_id_determined)
                 except Exception as e:
                     print(f'Error in {paper_path}!\nError: {str(e)}')
-                    
+
                 # sorting by q number
                 annotation_file['sort_col'] = annotation_file['sample_id-input'].apply(lambda x: int(x.split('q')[-1]))
                 annotation_file = annotation_file.sort_values(by=['sort_col'])
