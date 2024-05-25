@@ -128,5 +128,75 @@
         "file_name": "QP_Odisha NTSE Stage 1 2017-18) MAT.pdf",
         "num_questions": 49,
         "annotator": "ujjwalaa"
+    },
+    "a1a6d799-cefb-5ade-a001-db01d657babc": {
+        "file_name": "QP_Rajasthan NTSE Stage 1 2017-18 (MAT).pdf",
+        "num_questions": 50,
+        "annotator": "ujjwalaa"
+    },
+    "be4aa30a-5c41-5305-8da4-21d51762b102": {
+        "file_name": "QP_Chhattisgarh NTSE Stage 1 2017-18 (MAT_LANG).pdf",
+        "num_questions": 50,
+        "annotator": "ujjwalaa"
+    },
+    "8504e109-f11e-5b13-ab9d-ab30de79414b": {
+        "file_name": "QP_West Bengal NTSE Stage 1 2017-18 MAT.pdf",
+        "num_questions": 50,
+        "annotator": "ujjwalaa"
+    },
+    "5c42a815-940c-5a19-ab9a-c03c58f4c869": {
+        "file_name": "QP_Answer Keys_Kerala NTSE Stage 1 2017-18 SAT.pdf",
+        "num_questions": 20,
+        "annotator": "ujjwalaa"
+    },
+    "1525a034-b4d4-5fa1-b3cf-fd017d396ff8": {
+        "file_name": "QP_Karnataka NTSE Stage1 (2017-18) SAT.pdf",
+        "num_questions": 20,
+        "annotator": "ujjwalaa"
+    },
+    "1aa0750d-6269-57aa-8854-b5d5c5f726e7": {
+        "file_name": "QP_Gujarat NTSE Stage 1 2017-18 SAT.pdf",
+        "num_questions": 19,
+        "annotator": "ujjwalaa"
+    },
+    "b109777c-e078-580a-b361-2d3f780b3766": {
+        "file_name": "QP_ Punjab NTSE Stage 1 2017-18 (MAT_LANG_SAT).pdf",
+        "num_questions": 70,
+        "annotator": "ujjwalaa"
+    },
+    "c9ea2d8f-7d07-5bdd-a1b7-2799fa2ed281": {
+        "file_name": "QP_West Bengal NTSE Stage 1 2017-18 SAT.pdf",
+        "num_questions": 20,
+        "annotator": "ujjwalaa"
+    },
+    "a201e117-4fd1-5658-99e3-e915c6db15ab": {
+        "file_name": "QP_Answer Key Chandigarh NTSE Stage 1 2017-18 SAT.pdf",
+        "num_questions": 20,
+        "annotator": "ujjwalaa"
+    },
+    "76b32121-fb67-5693-a906-1c68fad1faca": {
+        "file_name": "QP_Chhattisgarh NTSE Stage 1 2017-18 (SAT).pdf",
+        "num_questions": 20,
+        "annotator": "ujjwalaa"
+    },
+    "b7a8c62e-7f7a-540c-98e2-4fb46f04eddd": {
+        "file_name": "QP_Rajasthan NTSE Stage 1 2017-18 (SAT).pdf",
+        "num_questions": 20,
+        "annotator": "ujjwalaa"
+    },
+    "49cff49e-8bd0-5538-8807-b3c74b648b2c": {
+        "file_name": "QP_Maharashtra NTSE Stage 1 2017-18 SAT.pdf",
+        "num_questions": 20,
+        "annotator": "ujjwalaa"
+    },
+    "084ac17f-22b3-59bb-b266-4e2d5e3ec462": {
+        "file_name": "QP_Odisha NTSE Stage 1 2017-18) SAT.pdf",
+        "num_questions": 20,
+        "annotator": "ujjwalaa"
+    },
+    "621362a1-281b-5c39-804a-1bc4a889e6fd": {
+        "file_name": "QP_Madhya Pradesh NTSE Stage 1 2017-18 (SAT_MAT_LANG).pdf",
+        "num_questions": 70,
+        "annotator": "ujjwalaa"
     }
 }
