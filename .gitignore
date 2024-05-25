@@ -4,9 +4,5 @@ config.ini
 *.idea
 __pycache__/
 raw_dataset
-<<<<<<< HEAD
 /ntse_17_18/
 /scripts/annotation_utils.sh
-=======
-scripts/annotation_utils.sh
->>>>>>> 4d09bf3832bfa2e28435aedea80303f482efc25d
