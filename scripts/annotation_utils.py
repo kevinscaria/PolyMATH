@@ -198,8 +198,12 @@ if args["mode"] == "create_annotation":
                 location, paper_name_with_extension = os.path.split(paper_path)
                 paper_name_without_extension = paper_name_with_extension.split(".")[0]
                 paper_id_determined = str(uuid.uuid5(uuid.NAMESPACE_DNS, paper_name_without_extension))
-                annotation_file = create_annotations_helper(paper_path, paper_id_determined)
 
+                try:
+                    annotation_file = create_annotations_helper(paper_path, paper_id_determined)
+                except Exception as e:
+                    print(f'Error in {paper_path}!\nError: {str(e)}')
+                    
                 # sorting by q number
                 annotation_file['sort_col'] = annotation_file['sample_id-input'].apply(lambda x: int(x.split('q')[-1]))
                 annotation_file = annotation_file.sort_values(by=['sort_col'])
