@@ -1,11 +1,8 @@
-import time
-import tqdm
-import pandas as pd
+import logging
 from PIL import Image
-
 from typing import List
-
 import google.generativeai as genai
+from scripts.inference_models.custom_exceptions import GeminiApiException
 
 
 do_gemini = True
@@ -62,6 +59,7 @@ class GeminiVisionInference:
         response.resolve()
         try:
             response_text = response.text
-        except: 
+        except GeminiApiException as e:
+            logging.debug(f"GeminiApiException: {e}")
             response_text = response.prompt_feedback
         return response_text
