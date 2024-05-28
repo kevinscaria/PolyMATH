@@ -7,7 +7,6 @@ import shutil
 import jsonlines
 import pandas as pd
 from tqdm import tqdm
-import jsonlines
 
 """
 This script contains the set of utility functions
