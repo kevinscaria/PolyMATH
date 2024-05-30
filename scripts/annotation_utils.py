@@ -121,9 +121,8 @@ def get_dict_array(annotation_dataframe):
 
     return output_dict_array
 
-
-# Driver code starts here
-root_path = "../"
+# Enter root path
+root_path = "./"
 
 if args["mode"] == "create_metadata":
     """
