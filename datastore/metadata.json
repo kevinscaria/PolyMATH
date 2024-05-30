@@ -228,5 +228,50 @@
         "file_name": "QP_Uttar Pradesh NTSE Stage 1 2017-18 (SAT_MAT_LANG).pdf",
         "num_questions": 70,
         "annotator": "ujjwalaa"
+    },
+    "97275c30-ba04-5f2c-b482-0035c70d6f83": {
+        "file_name": "QP_ANDHRA PRADESH_NTSE_STAGE 1_MAT_2019-20.pdf",
+        "num_questions": 100,
+        "annotator": "sverma"
+    },
+    "0bc2b11b-bb77-54bc-87e6-8fda667f0a6e": {
+        "file_name": "QP_DELHI_NTSE_STAGE 1_MAT_2019-20.pdf",
+        "num_questions": 100,
+        "annotator": "sverma"
+    },
+    "33092f26-301a-5a1a-9ef7-96d5340a160f": {
+        "file_name": "QP_HARYANA STATE_NTSE_STAGE 1_MAT_2019-20.pdf",
+        "num_questions": 100,
+        "annotator": "sverma"
+    },
+    "57fd9542-7ce4-53b2-87f0-e03d73577387": {
+        "file_name": "QP_GUJARAT_NTSE_STAGE 1_MAT_2019-20.pdf",
+        "num_questions": 100,
+        "annotator": "sverma"
+    },
+    "cbf50108-f0b2-5a5f-9483-c033dce6c9e5": {
+        "file_name": "QP_BIHAR_NTSE_STAGE 1_MAT_2019-20.pdf",
+        "num_questions": 100,
+        "annotator": "sverma"
+    },
+    "f1d4129a-64dc-5394-ab31-7fe4c13ab447": {
+        "file_name": "QP_CHANDIGARH_NTSE_STAGE 1_MAT_2019-20.pdf",
+        "num_questions": 100,
+        "annotator": "sverma"
+    },
+    "d5d5dbcc-49f5-5041-8a67-ea06a21860af": {
+        "file_name": "QP_CHHATTISGARH_NTSE_STAGE 1_MAT_2019-20.pdf",
+        "num_questions": 100,
+        "annotator": "sverma"
+    },
+    "175cfbb4-4e5f-5cef-b72c-21bbf528938d": {
+        "file_name": "QP_ODISHA_NTSE_STAGE 1_MAT_2019-20.pdf",
+        "num_questions": 100,
+        "annotator": "sverma"
+    },
+    "43727a02-d9a7-52a3-96c9-51b25de79461": {
+        "file_name": "QP_KERALA_NTSE_STAGE 1_2019-20_MAT.pdf",
+        "num_questions": 100,
+        "annotator": "sverma"
     }
 }
