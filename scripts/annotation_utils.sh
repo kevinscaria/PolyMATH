@@ -1,9 +1,29 @@
-# python annotation_utils.py \
-# --mode create_metadata \
-# --paper_path "../ntse_17_18/QP_Uttar Pradesh NTSE Stage 1 2017-18 (SAT_MAT_LANG).pdf" \
-# --annotator_name ujjwalaa \
-# --datastore_path "../datastore"
+# Run this script from the root directory as
+# bash scripts/annotation_utils.sh
 
-python annotation_utils.py \
---mode create_annotation \
---datastore_path "../datastore"
+
+## Metadata creation & initial setup
+#ANNOTATOR_NAME=kscaria
+#python ./scripts/annotation_utils.py \
+#--mode create_metadata \
+#--paper_path "./13_14_papers/NTSE-Stage-1-2013-Paper-MAT(Rajasthan).pdf" \
+#--annotator_name "$ANNOTATOR_NAME" \
+#--datastore_path "./datastore"
+
+## Merge screenshots tool
+python ./scripts/annotation_utils.py \
+--mode merge_screenshots \
+--paper_path "./datastore/QP_Test_BaseCase"
+
+## Entire datastore bulk annotation creation
+# python ./scripts/annotation_utils.py \
+# --mode create_annotation \
+# --datastore_path "./datastore"
+
+## Single paper annotation creation
+#python ./scripts/annotation_utils.py \
+#--mode create_annotation \
+#--paper_path "./datastore/QP_ Punjab NTSE Stage 1 2017-18 (MAT_LANG_SAT)"
+
+## Freeze annotation
+#TO BE ADDED
