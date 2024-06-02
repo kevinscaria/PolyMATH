@@ -2,11 +2,15 @@ import logging
 from PIL import Image
 from typing import List
 import google.generativeai as genai
-from scripts.inference_models.custom_exceptions import GeminiApiException
+# from scripts.inference_models.custom_exceptions import GeminiApiException
+import os
+from dotenv import load_dotenv
 
-
+load_dotenv("../.env")
+API_KEY = os.environ.get("GEMINI_API_KEY")
+# print(API_KEY,os.getcwd())
 do_gemini = True
-genai.configure(api_key="")
+genai.configure(api_key=API_KEY)
 
 
 class GeminiVisionInference:
@@ -29,7 +33,7 @@ class GeminiVisionInference:
         self.post_q = post_q or """Output only the correct answer option."""
 
         self.sleep_time = sleep_time
-        self.model = genai.GenerativeModel(model_id or "gemini-pro-vision")  
+        self.model = genai.GenerativeModel("gemini-pro-vision")  
 
     @staticmethod
     def print_gemini_models():
@@ -57,9 +61,11 @@ class GeminiVisionInference:
         template = self.get_template(context_paths=context_paths, img_paths=img_paths)
         response = self.model.generate_content(template, stream=True)
         response.resolve()
+        # print(response.candidates[0].content.parts[0].text)
         try:
-            response_text = response.text
-        except GeminiApiException as e:
+            response_text = response.candidates[0].content.parts[0].text
+            # print(response_text)
+        except Exception as e:
             logging.debug(f"GeminiApiException: {e}")
             response_text = response.prompt_feedback
         return response_text
