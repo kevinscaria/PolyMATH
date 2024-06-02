@@ -10,7 +10,7 @@ import jsonlines
 import numpy as np
 import pandas as pd
 from tqdm import tqdm
-from collections import defaultdict, Counter
+from collections import Counter
 
 """
 This script contains the set of utility functions
@@ -31,8 +31,8 @@ args = vars(parser.parse_args())
 def create_annotations_helper(paper_path, paper_id):
     """
     This method is the helper method to create annotations.csv
-    :param paper_path:
-    :param paper_id: 
+    :param paper_path: Path to the paper folder
+    :param paper_id: UUID of the paper
     :return: Returns the basic empty annotation dataframe with pre-filled columns
     """
     questions_directory = 'screenshots'
@@ -120,7 +120,7 @@ def create_annotations_helper(paper_path, paper_id):
 def get_dict_array(annotation_dataframe):
     """
     This method returns a dictionary array from the annotation dataframe
-    :param annotation_dataframe:
+    :param annotation_dataframe: The annotation.csv loaded as a dataframe
     :return: Returns the array of output dictionaries
     """
     ann_df = annotation_dataframe.astype(str)
@@ -208,7 +208,7 @@ def merge_split_screenshots(paper_path):
         # Write out merged file
         merged_image = merge_images(image_list)
         cv2.imwrite(os.path.join(screenshots_folder_path, merged_image_name), merged_image)
-    print("\033[92mMERGE STATUS: OK", '\u2713\033[0m')
+    print(f"\033[92mMERGE STATUS of {paper_path}: OK", '\u2713\033[0m')
 
 
 if __name__ == "__main__":
@@ -220,20 +220,27 @@ if __name__ == "__main__":
         """
         Create required files for metadata saving and prepares annotation related directories
         """
+        if args["paper_path"] is None:
+            raise ValueError("Required --paper_path value not specified!")
+
         # Determine file metadata
         location, paper_name_with_extension = os.path.split(args["paper_path"])
         paper_name_without_extension = paper_name_with_extension.split(".")[0]
 
         if args["annotator_name"] is None:
             annotator = input("Enter name of annotator: ")
+        else:
+            annotator = args["annotator_name"]
 
-        if not os.path.exists(os.path.join(root_path, "datastore", "metadata.json")):
-            os.makedirs(os.path.join(root_path, "datastore"), exist_ok=True)
-            file_path = os.path.join(root_path, "datastore", "metadata.json")
+        if args["datastore_path"] is None:
+            raise ValueError("Required --datastore_path value not specified!")
+
+        if not os.path.exists(os.path.join(args["datastore_path"], "metadata.json")):
+            os.makedirs(args["datastore_path"], exist_ok=True)
+            file_path = os.path.join(args["datastore_path"], "metadata.json")
 
             # Create new entry
             paper_id = str(uuid.uuid5(uuid.NAMESPACE_DNS, paper_name_without_extension))
-            annotator = args["annotator_name"]
             metadata_entry = {
                 'file_name': paper_name_with_extension,
                 'num_questions': None,
@@ -243,7 +250,7 @@ if __name__ == "__main__":
                 json.dump({paper_id: metadata_entry}, file, indent=4)
         else:
             # Open existing json file
-            with open(os.path.join(root_path, "datastore", "metadata.json"), "r") as file:
+            with open(os.path.join(args["datastore_path"], "metadata.json"), "r") as file:
                 existing_metadata_entries = json.load(file)
 
             # Create new entry
@@ -255,18 +262,18 @@ if __name__ == "__main__":
                 'annotator': annotator
             }
             existing_metadata_entries[paper_id] = metadata_entry
-            with open(os.path.join(root_path, "datastore", "metadata.json"), 'w') as f:
+            with open(os.path.join(args["datastore_path"], "metadata.json"), 'w') as f:
                 json.dump(existing_metadata_entries, f, indent=4)
 
         # Create the subdirectory of the paper being handled
-        os.makedirs(os.path.join(root_path, "datastore", paper_name_without_extension), exist_ok=True)
+        os.makedirs(os.path.join(args["datastore_path"], paper_name_without_extension), exist_ok=True)
 
         # Create the screenshots directory for each paper
-        os.makedirs(os.path.join(root_path, "datastore", paper_name_without_extension, "screenshots"),
+        os.makedirs(os.path.join(args["datastore_path"], paper_name_without_extension, "screenshots"),
                     exist_ok=True)
 
         # Copy the paper from the raw_dataset to the subdirectory created
-        shutil.copy(args["paper_path"], os.path.join(root_path, "datastore", paper_name_without_extension))
+        shutil.copy(args["paper_path"], os.path.join(args["datastore_path"], str(paper_name_without_extension)))
         print(f'Created directory for {os.path.join(root_path, "datastore", paper_name_without_extension)}')
 
     if args["mode"] == "create_annotation":
@@ -306,6 +313,9 @@ if __name__ == "__main__":
                     except Exception as e:
                         print(f'Error in {paper_path}!\nError: {str(e)}')
         else:
+            if args["paper_path"] is None:
+                raise ValueError("One of --paper_path or --datastore_path value is required!")
+
             # Determine file metadata
             location, paper_name_with_extension = os.path.split(args["paper_path"])
             paper_name_without_extension = paper_name_with_extension.split(".")[0]
@@ -334,23 +344,33 @@ if __name__ == "__main__":
         Create/appends to root/annotations.jsonl after human annotations.
         """
 
-        if args["datastore_path"] is not None:
+        if args["datastore_path"] is None:
+            raise ValueError("Required --datastore_path value not specified!")
+        else:
             filtered_directories = [i for i in os.listdir(args["datastore_path"]) if not i.startswith(".")]
             for paper_folders in os.listdir(args["datastore_path"]):
                 if paper_folders not in ["metadata.json", ".DS_Store"]:
                     paper_path = os.path.join(args["datastore_path"], paper_folders)
                     annotation_dataframe = pd.read_csv(os.path.join(paper_path, 'annotations.csv'))
-                    all_anns = get_dict_array(annotation_dataframe)
-                    with jsonlines.open(os.path.join(root_path, "datastore", 'annotation.jsonl'), mode='a') as writer:
-                        for ann in all_anns:
-                            writer.write(ann)
+                    all_annotations = get_dict_array(annotation_dataframe)
+                    with jsonlines.open(os.path.join(args["datastore_path"], 'annotation.jsonl'), mode='a') as writer:
+                        for annotation in all_annotations:
+                            writer.write(annotation)
                     writer.close()
-        else:
-            print('error: datastore path not specified!')
 
     if args["mode"] == "merge_screenshots":
         """
         Merge screenshots of contexts and questions
         """
-        paper_path = args["paper_path"]
-        merge_split_screenshots(paper_path)
+        if args["datastore_path"] is not None:
+            filtered_directories = [i for i in os.listdir(args["datastore_path"]) if not i.startswith(".")]
+            for paper_folders in filtered_directories:
+                paper_path = os.path.join(args["datastore_path"], paper_folders)
+                merge_split_screenshots(paper_path)
+        else:
+            if args["paper_path"] is None:
+                raise ValueError("One of --paper_path or --datastore_path value is required!")
+            merge_split_screenshots(args["paper_path"])
+
+
+
