@@ -2,18 +2,23 @@
 # bash scripts/annotation_utils.sh
 
 
-## Metadata creation & initial setup
-#ANNOTATOR_NAME=kscaria
-#python ./scripts/annotation_utils.py \
-#--mode create_metadata \
-#--paper_path "./13_14_papers/NTSE-Stage-1-2013-Paper-MAT(Rajasthan).pdf" \
-#--annotator_name "$ANNOTATOR_NAME" \
-#--datastore_path "./datastore"
-
-## Merge screenshots tool
+# Metadata creation & initial setup
+ANNOTATOR_NAME=muthu
 python ./scripts/annotation_utils.py \
---mode merge_screenshots \
---paper_path "./datastore/QP_Test_BaseCase"
+--mode create_metadata \
+--paper_path "./raw_dataset/13_14_papers/NTSE-Stage-1-2013-Paper-MAT(Rajasthan).pdf" \
+--annotator_name "$ANNOTATOR_NAME" \
+--datastore_path "./datastore"
+
+### Single paper merge screenshots tool
+#python ./scripts/annotation_utils.py \
+#--mode merge_screenshots \
+#--paper_path "./datastore/QP_Test_BaseCase"
+
+### Bulk merge screenshots tool
+#python ./scripts/annotation_utils.py \
+#--mode merge_screenshots \
+#--datastore_path "./datastore/"
 
 ## Entire datastore bulk annotation creation
 # python ./scripts/annotation_utils.py \
